@@ -6,8 +6,8 @@ const About = () => {
     <section id="about" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            About Me
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            About Me <span className="text-primary">✨</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Driven by curiosity and fueled by caffeine, I'm on a journey to bridge the gap between 
@@ -18,7 +18,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Bio Section */}
           <div className="space-y-6">
-            <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+            <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-primary">
                   <Code className="h-6 w-6" />
@@ -35,7 +35,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+            <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-accent">
                   <Brain className="h-6 w-6" />
@@ -54,7 +54,7 @@ const About = () => {
 
           {/* Education Section */}
           <div>
-            <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+            <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-primary">
                   <GraduationCap className="h-6 w-6" />

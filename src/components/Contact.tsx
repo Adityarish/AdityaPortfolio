@@ -67,8 +67,8 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Get In Touch
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Get In Touch <span className="text-primary">📬</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to collaborate? Let's discuss your project and create something amazing together
@@ -89,7 +89,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth group">
+                <Card key={index} className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth group">
                   <CardContent className="py-4">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-lg bg-primary/20 group-hover:scale-110 transition-smooth">
@@ -106,7 +106,7 @@ const Contact = () => {
             </div>
 
             {/* Resume Download */}
-            <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+            <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
               <CardContent className="py-6">
                 <div className="text-center">
                   <h4 className="font-semibold text-foreground mb-2">Download My Resume</h4>
@@ -123,7 +123,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+          <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-foreground">Send a Message</CardTitle>
             </CardHeader>

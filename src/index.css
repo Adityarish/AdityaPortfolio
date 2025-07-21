@@ -8,42 +8,46 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 240 5% 95%;
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 240 5% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 240 5% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 260 100% 70%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 35 100% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 6% 12%;
-    --secondary-foreground: 240 5% 85%;
+    --secondary: 35 100% 96%;
+    --secondary-foreground: 220 15% 15%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 4% 65%;
+    --muted: 35 20% 95%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 220 100% 60%;
-    --accent-foreground: 240 10% 4%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 18%;
-    --input: 240 6% 18%;
-    --ring: 260 100% 70%;
+    --border: 35 30% 85%;
+    --input: 35 30% 90%;
+    --ring: 35 100% 55%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
     
-    /* Custom gradient and effect tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(260 100% 70%), hsl(220 100% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(240 8% 8%), hsl(240 6% 12%));
-    --shadow-glow: 0 0 40px hsl(260 100% 70% / 0.15);
-    --shadow-card: 0 8px 32px hsl(240 10% 4% / 0.4);
+    /* Orange/Yellow theme design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(35 100% 55%), hsl(25 95% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(35 30% 97%));
+    --shadow-glow: 0 0 40px hsl(35 100% 55% / 0.15);
+    --shadow-card: 0 8px 32px hsl(35 100% 55% / 0.08);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Decorative elements */
+    --orange-light: 35 100% 85%;
+    --orange-circle: 35 100% 55%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -138,5 +142,27 @@
   
   .hover-glow {
     @apply transition-smooth hover:shadow-glow;
+  }
+  
+  .orange-circle {
+    position: relative;
+  }
+  
+  .orange-circle::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(45deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.1;
+  }
+  
+  .decorative-lines {
+    background-image: 
+      linear-gradient(45deg, hsl(var(--primary)) 2px, transparent 2px),
+      linear-gradient(-45deg, hsl(var(--primary)) 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.1;
   }
 }

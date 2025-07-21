@@ -28,8 +28,8 @@ const Certifications = () => {
     <section id="certifications" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Certifications
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Certifications <span className="text-primary">🏆</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Continuous learning and skill development through industry-recognized courses
@@ -38,7 +38,7 @@ const Certifications = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {certifications.map((cert, index) => (
-            <Card key={index} className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth group">
+            <Card key={index} className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth group">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <CardTitle className={`flex items-center gap-3 ${cert.color} group-hover:scale-105 transition-smooth`}>
@@ -88,7 +88,7 @@ const Certifications = () => {
 
         {/* Learning Philosophy */}
         <div className="mt-16">
-          <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth max-w-3xl mx-auto">
+          <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth max-w-3xl mx-auto">
             <CardContent className="py-8 text-center">
               <Award className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-foreground">

@@ -46,8 +46,8 @@ const Skills = () => {
     <section id="skills" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Technical Skills
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Technical Skills <span className="text-primary">⚡</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit for building modern, scalable applications from frontend to backend
@@ -56,7 +56,7 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth group">
+            <Card key={index} className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth group">
               <CardHeader>
                 <CardTitle className={`flex items-center gap-3 ${category.color} group-hover:scale-105 transition-smooth`}>
                   <category.icon className="h-6 w-6" />
@@ -82,7 +82,7 @@ const Skills = () => {
 
         {/* Operating Systems */}
         <div className="mt-8">
-          <Card className="gradient-card border-primary/20 shadow-card hover-glow transition-smooth">
+          <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-primary justify-center">
                 <Monitor className="h-6 w-6" />
