@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, ExternalLink, Mail, ArrowDown } from "lucide-react";
-import profilePlaceholder from "@/assets/profile-placeholder.jpg";
+import profilePlaceholder from "@/assets/adityaofficial.png";
 
 const Hero = () => {
   return (
@@ -81,7 +81,7 @@ const Hero = () => {
               <div className="text-sm text-muted-foreground">Client Satisfaction</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">10+</div>
+              <div className="text-3xl font-bold text-primary">5+</div>
               <div className="text-sm text-muted-foreground">Projects Done</div>
             </div>
           </div>

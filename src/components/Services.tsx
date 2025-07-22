@@ -90,7 +90,15 @@ const Services = () => {
               <p className="text-muted-foreground mb-6">
                 Let's discuss how I can help bring your ideas to life with modern web technologies
               </p>
-              <button className="gradient-primary px-8 py-3 rounded-lg font-semibold text-primary-foreground hover-glow hover-scale transition-smooth">
+              <button 
+                className="gradient-primary px-8 py-3 rounded-lg font-semibold text-primary-foreground hover-glow hover-scale transition-smooth"
+                onClick={() => {
+                  const contactSection = document.getElementById('send');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Get In Touch
               </button>
             </CardContent>

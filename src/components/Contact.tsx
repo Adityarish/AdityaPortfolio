@@ -5,12 +5,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Send, Download } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
 
@@ -35,10 +39,10 @@ const Contact = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast({
         title: "Missing Information",
         description: "Please fill in all fields before submitting.",
@@ -46,14 +50,36 @@ const Contact = () => {
       });
       return;
     }
-
-    // Handle form submission logic here
+    setIsLoading(true);
+    try{
+      await emailjs.send(
+      'service_f2qzi4f',
+      'template_bo8jc71',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      '0Lio439g4UDXHKWD0'
+    );
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+    }catch(error){
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error Sending Message",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    }finally{
+      setIsLoading(false);
+    }
 
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -160,6 +186,21 @@ const Contact = () => {
                 </div>
 
                 <div>
+                  <label htmlFor="subject" className="block text-sm font-semibold text-foreground mb-2">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="bg-background/50 border-primary/30 focus:border-primary"
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
                     Message
                   </label>
@@ -177,8 +218,9 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   className="w-full gradient-primary hover-glow hover-scale font-semibold"
+                  disabled={isLoading}
                 >
-                  <Send className="mr-2 h-4 w-4" />
+                  <Send className="mr-2 h-4 w-4" id="send"/>
                   Send Message
                 </Button>
               </form>
