@@ -10,17 +10,26 @@ const Certifications = () => {
       description: "Comprehensive Python programming course covering advanced concepts, object-oriented programming, web development with Flask, and data manipulation with pandas.",
       icon: Code,
       skills: ["Python Programming", "Flask Web Development", "Data Structures", "OOP Concepts", "API Development"],
-      color: "text-primary",
-      status: "Completed"
+      color: "text-accent",
+      status: <a href="https://www.udemy.com/certificate/UC-df2635d0-d64b-4b34-b25e-9b796abb8ba7/" target="_blank" rel="noopener noreferrer">Link</a>
+    },
+    {
+      title: "Full-Stack Web Dev Bootcamp",
+      provider: "Udemy", 
+      description: "Hands-on MERN stack bootcamp: develop and launch real-world web applications. Master React, Node.js, Express.js, and MongoDB.",
+      icon: BookOpen,
+      skills: ["MERN Stack","JavaScript", "Git & GitHub", "Version Control", "API Development", "Postman"],
+      color: "text-accent",
+      status: <a href="https://www.udemy.com/certificate/UC-e399b4aa-15e3-4b97-a0c7-0b7b406d9734/" target="_blank" rel="noopener noreferrer">Link</a>
     },
     {
       title: "Mastering DSA in C/C++",
       provider: "Udemy", 
       description: "In-depth data structures and algorithms course focusing on C/C++ implementations, problem-solving techniques, and optimization strategies for competitive programming.",
       icon: BookOpen,
-      skills: ["Data Structures", "Algorithms", "C++ Programming", "Problem Solving", "Optimization"],
+      skills: ["Data Structures Algorithms", "C++ Programming", "Problem Solving", "Optimization"],
       color: "text-accent",
-      status: "Completed"
+      status: <a href="https://www.udemy.com/certificate/UC-220433e3-088c-4b21-b112-ff668e38cf8d/" target="_blank" rel="noopener noreferrer">Link</a>
     }
   ];
 
@@ -29,14 +38,14 @@ const Certifications = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Certifications <span className="text-primary">🏆</span>
+            Certifications <span className="text-accent">🏆</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Continuous learning and skill development through industry-recognized courses
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-8xl mx-auto">
           {certifications.map((cert, index) => (
             <Card key={index} className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth group">
               <CardHeader>

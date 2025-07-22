@@ -95,7 +95,7 @@ const Services = () => {
                 onClick={() => {
                   const contactSection = document.getElementById('send');
                   if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
               >

@@ -1,10 +1,35 @@
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, Mail, ArrowDown } from "lucide-react";
+import { Download, ExternalLink, Mail, ArrowDown, Linkedin, CodeXml, FileUser ,Instagram} from "lucide-react";
 import profilePlaceholder from "@/assets/adityaofficial.png";
+import profileAnimated from "@/assets/adityaAnimated.webp";
+import { useRef, useState, useEffect } from "react"; // Import useState and useEffect
 
 const Hero = () => {
+  // Use state to manage which avatar is visible
+  const [isAnimatedAvatarVisible, setIsAnimatedAvatarVisible] = useState(false);
+
+  // Function to swap avatars
+  const handleAvatarHover = () => {
+    setIsAnimatedAvatarVisible(true);
+  };
+
+  const handleAvatarLeave = () => {
+    setIsAnimatedAvatarVisible(false);
+  };
+
+  // Ensure initial display state is correct when component mounts
+  useEffect(() => {
+    const staticImg = document.getElementById('avatar-static');
+    const animatedImg = document.getElementById('avatar-animated');
+    if (staticImg && animatedImg) {
+      staticImg.style.display = isAnimatedAvatarVisible ? 'none' : 'block';
+      animatedImg.style.display = isAnimatedAvatarVisible ? 'block' : 'none';
+    }
+  }, [isAnimatedAvatarVisible]);
+
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden bg-background">
+    <section className="hero min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden bg-background">
       {/* Decorative background elements */}
       <div className="absolute top-20 right-10 w-32 h-32 decorative-lines rounded-full"></div>
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-primary/10 rounded-full"></div>
@@ -28,26 +53,44 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
+          <a href="https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="gradient-primary hover-glow hover-scale font-semibold text-primary-foreground shadow-lg">
-              Get Started
+              Download CV
             </Button>
-            
-            <Button variant="ghost" size="lg" className="hover-scale text-primary border-2 border-transparent hover:border-primary">
+            </a>
+        
+            <Button variant="ghost" size="lg" className="hover-scale text-primary border-2 border-transparent hover:border-primary" onClick={() => {
+                  const aboutsection = document.getElementById('about');
+                  if (aboutsection) {
+                    aboutsection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}>
               <ArrowDown className="mr-2 h-5 w-5" />
-              Scroll Down
+              Scroll Down 
             </Button>
           </div>
 
           {/* Social Links */}
           <div className="flex gap-4 pt-4">
             <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground">
-              <ExternalLink className="h-4 w-4" />
+            <a href="https://www.linkedin.com/in/aditya-kumar-6a436535b/" target="_blank" rel="noopener noreferrer"> {/* Added rel */}
+              <Linkedin className="h-4 w-4" />
+            </a>
             </Button>
             <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground">
-              <Download className="h-4 w-4" />
+            <a href="https://www.instagram.com/__adit_18_/" target="_blank" rel="noopener noreferrer"> {/* Added rel */}
+              <Instagram className="h-4 w-4" />
+            </a>
             </Button>
-            <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground">
+            <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground" onClick={() => {
+              window.location.href = "mailto:seemeadit21824@gmail.com";
+            }}>
               <Mail className="h-4 w-4" />
+            </Button>
+            <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground">
+            <a href="https://leetcode.com/u/seemeadit21824/" target="_blank" rel="noopener noreferrer"> {/* Added rel */}
+              <CodeXml className="h-4 w-4" />
+            </a>
             </Button>
           </div>
         </div>
@@ -55,23 +98,34 @@ const Hero = () => {
         {/* Right Content - Profile & Stats */}
         <div className="flex flex-col items-center space-y-8">
           {/* Profile Image with decorative circle */}
-          <div className="relative">
+          <div className="relative" onMouseEnter={handleAvatarHover} onMouseLeave={handleAvatarLeave}> {/* Changed to onMouseEnter/onMouseLeave */}
             <div className="orange-circle w-80 h-80 rounded-full overflow-hidden border-8 border-primary/20 shadow-card hover-scale">
               <img 
+                id="avatar-static"
+                draggable={false}
                 src={profilePlaceholder} 
                 alt="Aditya Kumar" 
                 className="w-full h-full object-cover"
+                style={{ display: isAnimatedAvatarVisible ? 'none' : 'block' }} // Controlled by state
               />
+
+            <img 
+              id="avatar-animated"
+              draggable={false}
+              src={profileAnimated}
+              alt="Animated Aditya"
+              className="w-full h-full object-cover"
+              style={{ display: isAnimatedAvatarVisible ? 'block' : 'none' }} // Controlled by state
+            />
             </div>
-            
             {/* Decorative elements around the circle */}
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-pulse"></div>
             <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-accent/30 rounded-full"></div>
             <div className="absolute top-1/2 -left-8 w-6 h-6 bg-primary/50 rounded-full"></div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 w-full max-w-md">
+          {/* Stats - Added margin-bottom here */}
+          <div className="stats-container grid grid-cols-3 gap-8 w-full max-w-md mb-24 md:mb-32 lg:mb-40"> {/* Increased margin-bottom */}
             <div className="text-center">
               <div className="text-3xl font-bold text-primary">2+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
@@ -88,22 +142,24 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Company logos section */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-        <div className="gradient-primary h-20 rounded-full flex items-center justify-center shadow-glow">
-          <div className="flex items-center justify-center gap-8 text-primary-foreground font-semibold">
-            <span>MongoDB</span>
-            <span>•</span>
-            <span>Express</span>
-            <span>•</span>
-            <span>React</span>
-            <span>•</span>
-            <span>Node.js</span>
-            <span>•</span>
+      {/* Company logos section - No change to bottom-8 here, as margin-bottom on stats will create the space */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4">
+        <div className="gradient-primary h-auto py-3.5 rounded-full flex items-center justify-center shadow-glow hover-glow hover-scale transition-smooth"> {/* h-auto allows dynamic height, py-3 for vertical padding */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-primary-foreground font-semibold text-sm sm:text-base hover-glow hover-scale transition-smooth "> {/* flex-wrap for wrapping, responsive gaps, responsive font size */}
+            <span className="hidden sm:inline">•</span>
+            <span>MERN Stack</span>
+            <span className="hidden sm:inline">•</span>
             <span>Python</span>
+            <span className="hidden sm:inline">•</span>
+            <span>Flask</span>
+            <span className="hidden sm:inline">•</span>
+            <span>Git & GitHub</span>
+            <span className="hidden sm:inline">•</span>
+            <span>DSA</span>
           </div>
         </div>
       </div>
+       
     </section>
   );
 };

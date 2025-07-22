@@ -22,19 +22,19 @@ const Contact = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Bengaluru, IN",
+      value: <a href="https://maps.app.goo.gl/HDENthPmjSbZZksu9" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Bengaluru,  IN</a>,
       color: "text-primary"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 7061939341",
+      value: <a href="tel:+917061939341" className="text-accent hover:underline">+91 7061939341</a>,
       color: "text-accent"
     },
     {
       icon: Mail,
       label: "Email",
-      value: "seemeadit21824@gmail.com",
+      value: <a href="mailto:seemeadit21824@gmail.com" className="text-primary hover:underline">seemeadit21824@gmail.com</a>,
       color: "text-primary"
     }
   ];
@@ -139,7 +139,7 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Get a detailed overview of my experience and skills
                   </p>
-                  <Button className="gradient-primary hover-glow hover-scale">
+                  <Button className="gradient-primary hover-glow hover-scale" onClick={() => window.open('https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing', '_blank')}>
                     <Download className="mr-2 h-4 w-4" />
                     Download Resume
                   </Button>

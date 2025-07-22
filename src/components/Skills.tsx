@@ -35,9 +35,9 @@ const Skills = () => {
       color: "text-primary"
     },
     {
-      title: "ML & Data Tools",
-      icon: Brain,
-      skills: ["Scikit-learn", "Pandas", "NumPy", "Jupyter", "Matplotlib"],
+      title: "Operating Systems",
+      icon: Monitor,
+      skills: ["Windows", "Linux", "macOS"],
       color: "text-accent"
     }
   ];
@@ -85,13 +85,13 @@ const Skills = () => {
           <Card className="bg-card border border-primary/20 shadow-card hover-glow transition-smooth">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-primary justify-center">
-                <Monitor className="h-6 w-6" />
-                Operating Systems
+                <Brain className="h-6 w-6" />
+                ML & Data Tools
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 justify-center">
-                {["Windows", "Linux", "macOS"].map((os, index) => (
+                {["Scikit-learn", "Pandas", "NumPy", "Jupyter", "Matplotlib"].map((os, index) => (
                   <Badge 
                     key={index} 
                     variant="outline" 
