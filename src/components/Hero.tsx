@@ -1,8 +1,50 @@
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, Mail, ArrowDown, Linkedin, CodeXml, FileUser ,Instagram} from "lucide-react";
+import { Download, ExternalLink, Mail, ArrowDown, Linkedin, CodeXml, FileUser, Instagram } from "lucide-react"; // Added Instagram import
 import profilePlaceholder from "@/assets/adityaofficial.png";
 import profileAnimated from "@/assets/adityaAnimated.webp";
-import { useRef, useState, useEffect } from "react"; // Import useState and useEffect
+import { useRef, useState, useEffect } from "react";
+
+// Component to animate a single number
+const AnimatedNumber = ({ targetValue, duration = 1000 }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          let startTimestamp = null;
+          const animate = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = timestamp - startTimestamp;
+            const currentCount = Math.min(Math.floor((progress / duration) * targetValue), targetValue);
+            setCount(currentCount);
+
+            if (progress < duration) {
+              requestAnimationFrame(animate);
+            }
+          };
+          requestAnimationFrame(animate);
+          observer.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is visible
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [targetValue, duration]);
+
+  return <span ref={ref}>{count}</span>;
+};
+
 
 const Hero = () => {
   // Use state to manage which avatar is visible
@@ -51,12 +93,12 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Updated for Download CV */}
           <div className="flex flex-col sm:flex-row gap-4">
-          <a href="https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="gradient-primary hover-glow hover-scale font-semibold text-primary-foreground shadow-lg">
-              Download CV
-            </Button>
+            <a href="https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="gradient-primary hover-glow hover-scale font-semibold text-primary-foreground shadow-lg">
+                Download CV
+              </Button>
             </a>
         
             <Button variant="ghost" size="lg" className="hover-scale text-primary border-2 border-transparent hover:border-primary" onClick={() => {
@@ -70,7 +112,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links - Added Instagram */}
           <div className="flex gap-4 pt-4">
             <Button variant="outline" size="sm" className="border-primary/30 hover:bg-primary hover:text-primary-foreground">
             <a href="https://www.linkedin.com/in/aditya-kumar-6a436535b/" target="_blank" rel="noopener noreferrer"> {/* Added rel */}
@@ -124,28 +166,34 @@ const Hero = () => {
             <div className="absolute top-1/2 -left-8 w-6 h-6 bg-primary/50 rounded-full"></div>
           </div>
 
-          {/* Stats - Added margin-bottom here */}
+          {/* Stats - Now with AnimatedNumber component */}
           <div className="stats-container grid grid-cols-3 gap-8 w-full max-w-md mb-24 md:mb-32 lg:mb-40"> {/* Increased margin-bottom */}
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">2+</div>
+              <div className="text-3xl font-bold text-primary">
+                <AnimatedNumber targetValue={2} />+ {/* Using AnimatedNumber */}
+              </div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">100%</div>
+              <div className="text-3xl font-bold text-primary">
+                <AnimatedNumber targetValue={100} />% {/* Using AnimatedNumber */}
+              </div>
               <div className="text-sm text-muted-foreground">Client Satisfaction</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">5+</div>
+              <div className="text-3xl font-bold text-primary">
+                <AnimatedNumber targetValue={5} />+ {/* Using AnimatedNumber */}
+              </div>
               <div className="text-sm text-muted-foreground">Projects Done</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Company logos section - No change to bottom-8 here, as margin-bottom on stats will create the space */}
+      {/* Company logos section - Updated text */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4">
-        <div className="gradient-primary h-auto py-3.5 rounded-full flex items-center justify-center shadow-glow hover-glow hover-scale transition-smooth"> {/* h-auto allows dynamic height, py-3 for vertical padding */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-primary-foreground font-semibold text-sm sm:text-base hover-glow hover-scale transition-smooth "> {/* flex-wrap for wrapping, responsive gaps, responsive font size */}
+        <div className="gradient-primary h-auto py-3.5 rounded-full flex items-center justify-center shadow-glow hover-glow hover-scale transition-smooth">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-primary-foreground font-semibold text-sm sm:text-base hover-glow hover-scale transition-smooth ">
             <span className="hidden sm:inline">•</span>
             <span>MERN Stack</span>
             <span className="hidden sm:inline">•</span>
