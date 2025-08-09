@@ -95,7 +95,7 @@ const Hero = () => {
 
           {/* CTA Buttons - Updated for Download CV */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1JKmt-Cd3ek4Dei_1lD0z3ekcC4XfB-64/view" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gradient-primary hover-glow hover-scale font-semibold text-primary-foreground shadow-lg">
                 Download CV
               </Button>

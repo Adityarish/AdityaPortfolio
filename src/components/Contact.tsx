@@ -139,7 +139,7 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Get a detailed overview of my experience and skills
                   </p>
-                  <Button className="gradient-primary hover-glow hover-scale" onClick={() => window.open('https://drive.google.com/file/d/1BK1xE8fbKZP90hK5iVp9CDmyXhrXffmE/view?usp=sharing', '_blank')}>
+                  <Button className="gradient-primary hover-glow hover-scale" onClick={() => window.open('https://drive.google.com/file/d/1JKmt-Cd3ek4Dei_1lD0z3ekcC4XfB-64/view', '_blank')}>
                     <Download className="mr-2 h-4 w-4" />
                     Download Resume
                   </Button>
