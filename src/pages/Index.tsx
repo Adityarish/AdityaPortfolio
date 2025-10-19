@@ -7,6 +7,7 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Navbar from "@/components/navbar";
 import FloatingContactButton from "@/components/floatingContact";
+import Achievements from "@/components/achievements";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Services />
+      <Achievements />
       <Certifications />
       <Contact />
     </div>
