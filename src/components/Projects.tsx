@@ -1,32 +1,34 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, MessageCircle, Bot } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Chatify",
-      subtitle: "Real-time Chat Application",
-      description: "A modern, responsive chat application built with the MERN stack featuring real-time messaging, JWT-based authentication, and a mobile-first UI design. Users can create accounts, join chat rooms, and communicate seamlessly across devices.",
-      icon: MessageCircle,
-      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.io", "TailwindCSS", "JWT"],
+      title: "Krishify",
+      subtitle: "Connecting farmers and empowering agriculture",
+      description: "Krishify is a modern, community-driven mobile application built with Flutter and Firebase, designed to connect farmers and agri-enthusiasts. The platform enables users to share posts, buy and sell agricultural products, and access real-time crop and weather updates. With a clean, responsive interface and secure authentication, Krishify ensures a seamless user experience across devices.",
+      icon: ExternalLink,
+      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "n8n", "TailwindCSS", "JWT"],
       features: [
-        "Real-time messaging with Socket.io",
-        "JWT-based secure authentication", 
-        "Mobile-responsive design",
-        "User online/offline status",
-        "Message history persistence"
+        "Community platform for farmers and agri-enthusiasts",
+        "Crop advisory and weather updates in real-time",
+        "Buy and sell agricultural products seamlessly",
+        "User-friendly interface built with Flutter",
+        "Image and post sharing",
+        "Personalized user profiles and activity feed",
+        "Push notifications for updates and interactions"
       ],
-      liveDemo: "#",
-      github: "#",
+      liveDemo: <a href="https://krishify-mu.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>,
+      github: <a href="https://github.com/ImAust1n/Krishify-Frontend" target="_blank" rel="noopener noreferrer">Code</a>,
       color: "text-primary"
     },
     {
       title: "Movie Recommendation Bot",
       subtitle: "AI-Powered Content Discovery",
       description: "An intelligent movie recommendation system built with Python and Scikit-learn using K-Nearest Neighbors algorithm. The bot provides personalized movie suggestions based on user preferences and viewing history through advanced content filtering.",
-      icon: Bot,
+      icon: ExternalLink,
       technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "KNN Algorithm", "Content Filtering"],
       features: [
         "Personalized movie recommendations",
@@ -35,8 +37,8 @@ const Projects = () => {
         "Movie similarity analysis",
         "Interactive recommendation interface"
       ],
-      liveDemo: "#",
-      github: "#",
+      liveDemo: <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>,
+      github: <a href="#" target="_blank" rel="noopener noreferrer">Code</a>,
       color: "text-accent"
     }
   ];
@@ -102,14 +104,12 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-4">
-                  <Button className="gradient-primary hover-glow hover-scale flex-1">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </Button>
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-scale">
-                    <Github className="mr-2 h-4 w-4" />
-                    Code
-                  </Button>
+                  {project.liveDemo && <Button className="gradient-primary hover-glow hover-scale flex-1">
+                    {project.liveDemo}
+                  </Button>}
+                  {project.github && <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-scale">
+                    {project.github}
+                  </Button>}
                 </div>
               </CardContent>
             </Card>

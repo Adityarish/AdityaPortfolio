@@ -10,6 +10,7 @@ const Achievements = () => {
       link: "https://drive.google.com/file/d/1aFeawCwMu0MhiFO25CFmqxAMxrjsllaL/view?usp=sharing",
       date: "March 2025",
       color: "text-primary",
+      
     },
     {
       title: "3rd Place in Code Breaker Challenge 1.0",
@@ -47,7 +48,11 @@ const Achievements = () => {
                 </p>
                 <div className="flex flex-row items-center gap-2">
                   <ExternalLink className="h-6 w-6" />
-                  <a href={achievement.link} target="_blank" rel="noopener noreferrer">View Certificate</a>
+                  <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/70 hover:underline">
+                    <Badge variant="secondary" className="group-hover:scale-105 transition-smooth">
+                      View Certificate
+                    </Badge>
+                  </a>
                 </div>
               </CardContent>
             </Card>
