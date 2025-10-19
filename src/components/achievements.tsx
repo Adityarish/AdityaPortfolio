@@ -13,11 +13,25 @@ const Achievements = () => {
       
     },
     {
-      title: "3rd Place in Code Breaker Challenge 1.0",
-      description: "Secured 3rd place in Code Breaker Challenge 1.0, a 24-hour national-level hackathon organized by the Department of AI & ML, Global Academy of Technology. The award recognizes outstanding creativity, technical expertise, and impactful contributions.",
+      title: "3rd Position in Code Breaker Challenge 1.0",
+      description: "Secured 3rd position in Code Breaker Challenge 1.0, a 24-hour national-level hackathon organized by the Department of AI & ML, Global Academy of Technology. The award recognizes outstanding creativity, technical expertise, and impactful contributions.",
       link: "https://drive.google.com/file/d/1qBhFolQYDGaKOULN02jH10jo9yNReih6/view?usp=sharing",
       date: "May 2025",
       color: "text-primary",
+    },
+     {
+      title: "2nd Position in Tech Olympics",
+      description: "Secured Second Position in the Tech Olympics, a competition held at the 20th Indian Society for Technical Education (ISTE) Karnataka State Level Student Convention 2024-2025, organized by New Horizon College of Engineering.",
+      link: "https://drive.google.com/file/d/1qqnr9dZje57PcXq0E5yHS4OR5NuvJ9c_/view?usp=sharing",
+      date: "March 2025",
+      color: "text-primary",
+    },
+    {
+      title: "Volunteer of Founders Forum - QuantumX-25",
+      description: "Awarded a Certificate of Appreciation for an invaluable contribution as a Volunteer for the Founders Forum during QuantumX-25, a National Level Techno-Managerial Fest. This role demonstrated strong Event Management, Volunteer Leadership, and Organizational Skills during the event held at New Horizon College of Engineering.",
+      link: "https://drive.google.com/file/d/12C8uGplGfy-by43Zot5IMGX302CziFK_/view?usp=sharing",
+      date: "April 2025",
+      color: "text-primary"
     }
   ];
 

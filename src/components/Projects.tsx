@@ -20,8 +20,8 @@ const Projects = () => {
         "Personalized user profiles and activity feed",
         "Push notifications for updates and interactions"
       ],
-      liveDemo: <a href="https://krishify-mu.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>,
-      github: <a href="https://github.com/ImAust1n/Krishify-Frontend" target="_blank" rel="noopener noreferrer">Code</a>,
+      liveDemo: "https://krishify-mu.vercel.app/",
+      github: "https://github.com/ImAust1n/Krishify-Frontend",
       color: "text-primary"
     },
     {
@@ -104,12 +104,12 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-4">
-                  {project.liveDemo && <Button className="gradient-primary hover-glow hover-scale flex-1">
-                    {project.liveDemo}
-                  </Button>}
-                  {project.github && <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-scale">
-                    {project.github}
-                  </Button>}
+                  {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer"><Button size="lg" className="gradient-primary hover-glow hover-scale flex-1">
+                    Live Demo
+                  </Button></a>}
+                  {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer"><Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover-scale">
+                    Code
+                  </Button></a>}
                 </div>
               </CardContent>
             </Card>
